@@ -12,7 +12,7 @@
     <a v-for="(x,i) in menus" :key="i">{{x}}</a>
   </div>
 
-  <Discount/>
+  <discount/>
 
   <div class="sect" v-for="(a,i) in oneroom" :key="i">
     <img :src="a.image">
