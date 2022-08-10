@@ -12,6 +12,8 @@
     <a v-for="(x,i) in menus" :key="i">{{x}}</a>
   </div>
 
+  <Discount/>
+
   <div class="sect" v-for="(a,i) in oneroom" :key="i">
     <img :src="a.image">
     <h4 @click="modal(i)">{{a.title}}</h4>
@@ -23,6 +25,7 @@
 
 <script>
 import oneroom from './assets/oneroom';
+import discount from './components/Discount.vue';
 
 export default {
   name: 'App',
@@ -50,6 +53,7 @@ export default {
     }
   },
   components: {
+    discount : discount
   }
 }
 </script>
@@ -70,5 +74,6 @@ div {box-sizing: border-box;}
 .sect {margin-bottom:30px}
 .menu {background:darkblue; padding:15px; border-radius: 15px;}
 .menu a {color:#fff; padding:10px}
+
 img {width:100%}
 </style>
