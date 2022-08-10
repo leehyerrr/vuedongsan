@@ -7,7 +7,7 @@
       <button @click="modal">닫기</button>
     </div>
   </div>
-  
+
   <div class="menu">
     <a v-for="(x,i) in menus" :key="i">{{x}}</a>
   </div>
@@ -17,7 +17,8 @@
     <h4 @click="modal(i)">{{a.title}}</h4>
     <p>{{i}}</p>
     <p>{{a.price}}</p>
-  </div>    
+  </div> 
+
 </template>
 
 <script>
@@ -33,7 +34,6 @@ export default {
       menus : ['home','about','shop'],
       declation: [0,0,0],
       openModal : false,
-      press : 0,
       idx : 0,
     }
   },
