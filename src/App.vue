@@ -1,20 +1,21 @@
 <template>
-    <div class="black-bg" v-if="openModal" >
-      <div class="white-bg">
-        <h4>{{oneroom[i].title}}</h4>
-        <p>내용임</p>
-        <button @click="modal">닫기</button>
-      </div>
+
+  <div class="black-bg" v-if="openModal" >
+    <div class="white-bg">
+      <h4>{{oneroom[idx].title}}</h4>
+      <p>내용임</p>
+      <button @click="modal">닫기</button>
     </div>
-
-
+  </div>
+  
   <div class="menu">
     <a v-for="(x,i) in menus" :key="i">{{x}}</a>
   </div>
 
   <div class="sect" v-for="(a,i) in oneroom" :key="i">
     <img :src="a.image">
-    <h4 @click="modal">{{a.title}}</h4>
+    <h4 @click="modal(i)">{{a.title}}</h4>
+    <p>{{i}}</p>
     <p>{{a.price}}</p>
   </div>    
 </template>
@@ -33,12 +34,17 @@ export default {
       declation: [0,0,0],
       openModal : false,
       press : 0,
+      idx : 0,
     }
   },
   methods: {
-    modal(){
+    modal(i){
       // console.log(this[i]);
-      if(this.openModal == false) {return this.openModal = true} else {return this.openModal = false}
+      if(this.openModal == false) {
+        return this.openModal = true, this.idx = i; 
+        } 
+        else {return this.openModal = false}
+      // this.idx = i;
       // this.press = i
       // return this.openModal = true;
     }
