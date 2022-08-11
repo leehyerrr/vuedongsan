@@ -3,7 +3,7 @@
   <div class="black-bg" v-if="openModal" >
     <div class="white-bg">
       <h4>{{oneroom[idx].title}}</h4>
-      <p>내용임</p>
+      <p>내용임ddddgd</p>
       <button @click="modal">닫기</button>
     </div>
   </div>
