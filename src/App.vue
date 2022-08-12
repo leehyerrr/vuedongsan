@@ -1,12 +1,6 @@
 <template>
 
-  <div class="black-bg" v-if="openModal" >
-    <div class="white-bg">
-      <h4>{{oneroom[idx].title}}</h4>
-      <p>내용임ddddgd</p>
-      <button @click="modal">닫기</button>
-    </div>
-  </div>
+  <Modal :oneroom=oneroom :modal=modal :openModal=openModal :idx=idx :object=object />
 
   <div class="menu">
     <a v-for="(x,i) in menus" :key="i">{{x}}</a>
@@ -14,24 +8,29 @@
 
   <discount/>
 
-  <div class="sect" v-for="(a,i) in oneroom" :key="i">
-    <img :src="a.image">
-    <h4 @click="modal(i)">{{a.title}}</h4>
-    <p>{{i}}</p>
-    <p>{{a.price}}</p>
-  </div> 
+  <!-- <Card :a=oneroom[0] />
+  <Card :a=oneroom[1] />
+  <Card :a=oneroom[3] />
+  <Card :a=oneroom[4] />
+  <Card :a=oneroom[5] /> -->
+
+  <Card :a=oneroom[i] v-for="(x,i) in oneroom" :key="i"/>
+
 
 </template>
 
 <script>
 import oneroom from './assets/oneroom';
 import discount from './components/Discount.vue';
+import Modal from './components/Modal.vue';
+import Card from './components/Card.vue';
 
 export default {
   name: 'App',
   data(){
     return{
       // pop:"pop",
+      object : {name:"kim", age:30},
       oneroom: oneroom,
       products:['역삼동원룸','천호동원룸','마포구동원룸'],
       menus : ['home','about','shop'],
@@ -53,7 +52,9 @@ export default {
     }
   },
   components: {
-    discount : discount
+    discount : discount,
+    Modal : Modal,
+    Card : Card,
   }
 }
 </script>
