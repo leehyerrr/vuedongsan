@@ -1,6 +1,6 @@
 <template>
 
-  <Modal :oneroom=oneroom :modal=modal :openModal=openModal :idx=idx :object=object />
+  <Modal :oneroom=oneroom :modal=modal :openModal=openModal :idx=idx :object=object @emitModal="modal"/>
 
   <div class="menu">
     <a v-for="(x,i) in menus" :key="i">{{x}}</a>
@@ -14,7 +14,7 @@
   <Card :a=oneroom[4] />
   <Card :a=oneroom[5] /> -->
 
-  <Card :a=oneroom[i] v-for="(x,i) in oneroom" :key="i"/>
+  <Card @openModal2="modal" :a=oneroom[i] v-for="(x,i) in oneroom" :key="i"/>
 
 
 </template>
