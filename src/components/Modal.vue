@@ -9,7 +9,7 @@
       
       <p>선택한 개월수 : {{month}}</p>
       <p>가격: {{month*oneroom[idx].price}}</p>
-      <p><input type="text" @change="month = $event.target.value"></p>
+      <!-- <p><input type="text" @input="month = $event.target.value"></p> -->
       <p><input v-model="month"></p> <!-- 위에거랑 똑같음 -->
       <!-- v-model이라는것은 form마다 다르게 동작함, 다해보거라 -->
       <!-- <button @click="modal">닫기</button> -->
@@ -33,6 +33,24 @@ export default {
         month:0,// 초기값의 타입에 따라 적용이 되고 안되고 갈림,
         selval:3,
         chkval:true
+      }
+    },
+    watch : {
+      month(a){
+        if(a > 13){
+          alert('13이상 입력하지마셈');
+          this.month = 1
+        }
+        if(isNaN(a) == true){
+          alert('숫자만입력하셈');
+          this.month = 1
+        }
+
+      }
+    },
+    updated(e){
+      if(this.month == 2){
+        alert('ㅜㅜ')
       }
     },
     props:{

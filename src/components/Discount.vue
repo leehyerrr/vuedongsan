@@ -1,14 +1,13 @@
 <template>
-  <div>sdlkfsdklfsjdkflsjdkfl</div>
-  <div>sdlkfsdklfsjdkflsjdkfl</div>
-  <div>sdlkfsdklfsjdkflsjdkfl</div>
-  <div>sdlkfsdklfsjdkflsjdkfl</div>
-  <div>sdlkfsdklfsjdkflsjdkfl</div>
+  {{showDiscount}}
 </template>
 
 <script>
 export default {
     name: 'discount',
+    props:{
+      showDiscount:Number
+      }    
     }
 </script>
 
